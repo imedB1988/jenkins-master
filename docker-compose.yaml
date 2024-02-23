@@ -1,0 +1,22 @@
+version: '3.7'
+services:
+  web:
+    image: "trainwithshubham/node-app-test-new:latest"
+    ports:
+      - "8081:8000"
+
+
+  jenkins:
+      image: jenkins/jenkins:lts
+      privileged: true
+      user: root
+      ports:
+        - 8080:8080 
+        - 50000:50000
+      container_name: jenkins
+      volumes:
+        - /home/${myname}/jenkins_compose/jenkins_configuration:/var/jenkins_home
+        - /var/run/docker.sock:/var/run/docker.sock
+
+
+
