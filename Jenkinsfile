@@ -7,5 +7,17 @@ pipeline {
       }
     }
 
+    stage('test') {
+      steps {
+        sh 'npm test'
+      }
+    }
+
+    stage('checkout') {
+      steps {
+        git(url: 'https://github.com/imedB1988/jenkins-master.git', branch: 'master')
+      }
+    }
+
   }
 }
